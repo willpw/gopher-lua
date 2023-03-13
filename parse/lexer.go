@@ -36,11 +36,11 @@ func writeChar(buf *bytes.Buffer, c int) { buf.WriteByte(byte(c)) }
 func isDecimal(ch int) bool { return '0' <= ch && ch <= '9' }
 
 func isIdent(ch int, pos int) bool {
-	return ch == '_' || 'A' <= ch && ch <= 'Z' || 'a' <= ch && ch <= 'z' || isDecimal(ch) && pos > 0
+	return ch == '_' || 'A' <= ch && ch <= 'Z' || 'a' <= ch && ch <= 'z' || isDecimal(ch) && pos > 0 || 128 <= ch && ch <= 255
 }
 
 func isDigit(ch int) bool {
-	return '0' <= ch && ch <= '9' || 'a' <= ch && ch <= 'f' || 'A' <= ch && ch <= 'F'
+	return '0' <= ch && ch <= '9' || 'a' <= ch && ch <= 'f' || 'A' <= ch && ch <= 'F' 
 }
 
 type Scanner struct {
